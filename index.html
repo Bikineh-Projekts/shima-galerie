@@ -257,7 +257,6 @@
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
       transition: all 0.4s ease;
       background: rgba(255, 255, 255, 0.05);
-      cursor: pointer;
       border: 1px solid rgba(212, 175, 55, 0.2);
       aspect-ratio: 4 / 5;
     }
@@ -294,6 +293,56 @@
       backdrop-filter: blur(10px);
       pointer-events: none;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Action buttons */
+    .gallery-actions {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .action-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .select-btn {
+      background: linear-gradient(135deg, #d4af37 0%, #f0c748 100%);
+      color: #1a1a1a;
+    }
+
+    .select-btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #f0c748 0%, #ffd700 100%);
+    }
+
+    .select-btn.selected {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .zoom-btn {
+      background: rgba(255, 255, 255, 0.9);
+      color: #1a1a1a;
+    }
+
+    .zoom-btn:hover {
+      transform: scale(1.1);
+      background: white;
     }
 
     .purchase-info {
@@ -611,28 +660,6 @@
       box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
     }
 
-    .selection-overlay {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: #d4af37;
-      color: #1a1a1a;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .gallery-item.selected .selection-overlay {
-      opacity: 1;
-    }
-
     .cart-indicator {
       position: relative;
       display: flex;
@@ -947,6 +974,12 @@
         padding: 6px 12px;
         font-size: 0.9rem;
       }
+
+      .action-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1028,128 +1061,197 @@
     <section class="gallery-page">
       <h2 class="section-title" id="galleryTitle">My Artworks</h2>
       <div class="gallery" id="galleryGrid">
-        <!-- Gallery items with selection functionality -->
-        <div class="gallery-item" data-artwork="1" onclick="openLightbox(1)">
+        <!-- Gallery items with separate zoom and selection buttons -->
+        <div class="gallery-item" data-artwork="1">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(1, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(1)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0471.JPG" alt="Realistic portrait drawing with pen">
           <div class="gallery-overlay"><span>1</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="2" onclick="openLightbox(2)">
+        <div class="gallery-item" data-artwork="2">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(2, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(2)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0472.JPG" alt="Detailed pencil drawing of a face">
           <div class="gallery-overlay"><span>2</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="3" onclick="openLightbox(3)">
+        <div class="gallery-item" data-artwork="3">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(3, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(3)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0474.JPG" alt="Pen art with shading techniques">
           <div class="gallery-overlay"><span>3</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="4" onclick="openLightbox(4)">
+        <div class="gallery-item" data-artwork="4">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(4, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(4)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0476.JPG" alt="Realistic eye drawing with pencil">
           <div class="gallery-overlay"><span>4</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="5" onclick="openLightbox(5)">
+        <div class="gallery-item" data-artwork="5">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(5, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(5)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0477.JPG" alt="Portrait art with pen technique">
           <div class="gallery-overlay"><span>5</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="6" onclick="openLightbox(6)">
+        <div class="gallery-item" data-artwork="6">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(6, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(6)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0479.JPG" alt="Detailed face study with pen">
           <div class="gallery-overlay"><span>6</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="7" onclick="openLightbox(7)">
+        <div class="gallery-item" data-artwork="7">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(7, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(7)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0481.JPG" alt="Artwork with shading techniques">
           <div class="gallery-overlay"><span>7</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="8" onclick="openLightbox(8)">
+        <div class="gallery-item" data-artwork="8">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(8, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(8)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0482.JPG" alt="Realistic drawing with precision">
           <div class="gallery-overlay"><span>8</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="9" onclick="openLightbox(9)">
+        <div class="gallery-item" data-artwork="9">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(9, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(9)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0485.JPG" alt="Pencil portrait with details">
           <div class="gallery-overlay"><span>9</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="10" onclick="openLightbox(10)">
+        <div class="gallery-item" data-artwork="10">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(10, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(10)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="IMG_0486.JPG" alt="Pen artwork in profile">
           <div class="gallery-overlay"><span>10</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="11" onclick="openLightbox(11)">
+        <div class="gallery-item" data-artwork="11">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(11, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(11)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-09-19_01-14-34.jpg" alt="Realistic hand drawing with pen">
           <div class="gallery-overlay"><span>11</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="12" onclick="openLightbox(12)">
+        <div class="gallery-item" data-artwork="12">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(12, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(12)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-36.jpg" alt="Detailed portrait study">
           <div class="gallery-overlay"><span>12</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="13" onclick="openLightbox(13)">
+        <div class="gallery-item" data-artwork="13">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(13, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(13)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-44.jpg" alt="Pen art with depth">
           <div class="gallery-overlay"><span>13</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="14" onclick="openLightbox(14)">
+        <div class="gallery-item" data-artwork="14">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(14, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(14)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-51.jpg" alt="Pencil drawing with texture">
           <div class="gallery-overlay"><span>14</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="15" onclick="openLightbox(15)">
+        <div class="gallery-item" data-artwork="15">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(15, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(15)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-05-39.jpg" alt="Realistic facial expressions">
           <div class="gallery-overlay"><span>15</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="16" onclick="openLightbox(16)">
+        <div class="gallery-item" data-artwork="16">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(16, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(16)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-08.jpg" alt="Artwork with light and shadow">
           <div class="gallery-overlay"><span>16</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="17" onclick="openLightbox(17)">
+        <div class="gallery-item" data-artwork="17">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(17, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(17)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-39.jpg" alt="Pen art in detail">
           <div class="gallery-overlay"><span>17</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="18" onclick="openLightbox(18)">
+        <div class="gallery-item" data-artwork="18">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(18, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(18)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-52.jpg" alt="Pencil study with precision">
           <div class="gallery-overlay"><span>18</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="19" onclick="openLightbox(19)">
+        <div class="gallery-item" data-artwork="19">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(19, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(19)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-09.jpg" alt="Realistic eye area">
           <div class="gallery-overlay"><span>19</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="20" onclick="openLightbox(20)">
+        <div class="gallery-item" data-artwork="20">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(20, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(20)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-39.jpg" alt="Artwork with depth effect">
           <div class="gallery-overlay"><span>20</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="21" onclick="openLightbox(21)">
+        <div class="gallery-item" data-artwork="21">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(21, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(21)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-54.jpg" alt="Portrait drawing with pen">
           <div class="gallery-overlay"><span>21</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="22" onclick="openLightbox(22)">
+        <div class="gallery-item" data-artwork="22">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(22, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(22)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-09.jpg" alt="Realistic facial features">
           <div class="gallery-overlay"><span>22</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
-        <div class="gallery-item" data-artwork="23" onclick="openLightbox(23)">
+        <div class="gallery-item" data-artwork="23">
+          <div class="gallery-actions">
+            <button class="action-btn select-btn" onclick="toggleArtworkSelection(23, this)">+</button>
+            <button class="action-btn zoom-btn" onclick="openLightbox(23)">🔍</button>
+          </div>
           <img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-16.jpg" alt="Detailed pencil art">
           <div class="gallery-overlay"><span>23</span></div>
-          <div class="selection-overlay">✓</div>
         </div>
       </div>
 
       <div class="purchase-info">
         <p id="purchaseText">
           <strong id="purchaseStrong">Interested in purchasing an artwork?</strong><br />
-          <span id="purchaseDescription">Click on artworks to select them, then proceed to purchase to send your inquiry.</span>
+          <span id="purchaseDescription">Use the + button to select artworks, then proceed to purchase to send your inquiry.</span>
         </p>
       </div>
     </section>
@@ -1326,7 +1428,7 @@
         contactText: 'Interested in my artwork? For purchase, exhibitions, commissions or collaborations, feel free to reach out to me. I\'d love to hear from you!',
         emailButton: 'ShimaArtist1994@gmail.com',
         purchaseStrong: 'Interested in purchasing an artwork?',
-        purchaseDescription: 'Click on artworks to select them, then proceed to purchase to send your inquiry.',
+        purchaseDescription: 'Use the + button to select artworks, then proceed to purchase to send your inquiry.',
         purchaseTitle: 'Purchase Artworks',
         selectedArtworks: 'Selected Artworks',
         sendInquiry: 'Send Purchase Inquiry',
@@ -1354,7 +1456,7 @@
         contactText: 'Interessiert an meinen Kunstwerken? Für Verkauf, Ausstellungen, Auftragsarbeiten oder Zusammenarbeit können Sie mich gerne kontaktieren. Ich freue mich von Ihnen zu hören!',
         emailButton: 'ShimaArtist1994@gmail.com',
         purchaseStrong: 'Interessiert an einem Kunstwerk?',
-        purchaseDescription: 'Klicken Sie auf Kunstwerke, um sie auszuwählen, und fahren Sie dann mit dem Kauf fort, um Ihre Anfrage zu senden.',
+        purchaseDescription: 'Verwenden Sie die + Schaltfläche, um Kunstwerke auszuwählen, und fahren Sie dann mit dem Kauf fort, um Ihre Anfrage zu senden.',
         purchaseTitle: 'Kunstwerke Kaufen',
         selectedArtworks: 'Ausgewählte Kunstwerke',
         sendInquiry: 'Kaufanfrage Senden',
@@ -1382,7 +1484,7 @@
         contactText: 'به آثار هنری من علاقه‌مند هستید؟ برای خرید، نمایشگاه‌ها، سفارشات یا همکاری، می‌توانید با من تماس بگیرید. خوشحال می‌شوم پیام شما را دریافت کنم!',
         emailButton: 'ShimaArtist1994@gmail.com',
         purchaseStrong: 'علاقه‌مند به خرید یک اثر هنری هستید؟',
-        purchaseDescription: 'برای انتخاب آثار هنری روی آنها کلیک کنید، سپس برای ارسال درخواست خود به بخش خرید بروید.',
+        purchaseDescription: 'از دکمه + برای انتخاب آثار هنری استفاده کنید، سپس برای ارسال درخواست خود به بخش خرید بروید.',
         purchaseTitle: 'خرید آثار هنری',
         selectedArtworks: 'آثار هنری انتخاب شده',
         sendInquiry: 'ارسال درخواست خرید',
@@ -1398,15 +1500,19 @@
       }
     };
 
-    function toggleArtworkSelection(artworkNumber) {
+    function toggleArtworkSelection(artworkNumber, button) {
       const item = document.querySelector(`[data-artwork="${artworkNumber}"]`);
       
       if (selectedArtworks.has(artworkNumber)) {
         selectedArtworks.delete(artworkNumber);
         item.classList.remove('selected');
+        button.classList.remove('selected');
+        button.textContent = '+';
       } else {
         selectedArtworks.add(artworkNumber);
         item.classList.add('selected');
+        button.classList.add('selected');
+        button.textContent = '✓';
       }
       
       updateCart();
@@ -1468,8 +1574,11 @@
     function removeFromCart(artworkNumber) {
       selectedArtworks.delete(artworkNumber);
       const item = document.querySelector(`[data-artwork="${artworkNumber}"]`);
+      const button = item.querySelector('.select-btn');
       if (item) {
         item.classList.remove('selected');
+        button.classList.remove('selected');
+        button.textContent = '+';
       }
       updateCart();
     }
