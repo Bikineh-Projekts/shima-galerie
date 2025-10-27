@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shima Galerie - Realistische Kunstwerke mit Kugelschreiber und Bleistift" />
-  <title>Shima Galerie | Realistische Kunst</title>
-  <meta property="og:title" content="Shima Galerie – Realistische Kunst" />
-  <meta property="og:description" content="Kugelschreiber- & Bleistiftkunst von Shima. Galerie & Kontakt." />
+  <meta name="description" content="Shima Gallery - Realistic artwork with pen and pencil" />
+  <title>Shima Gallery | Realistic Art</title>
+  <meta property="og:title" content="Shima Gallery – Realistic Art" />
+  <meta property="og:description" content="Pen & pencil art by Shima. Gallery & contact." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#1a1a1a" />
   <style>
@@ -29,6 +29,12 @@
       border-radius: 8px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(212, 175, 55, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .language-selector:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(212, 175, 55, 0.5);
     }
 
     .language-selector select {
@@ -40,25 +46,29 @@
       cursor: pointer;
       font-weight: 500;
       font-family: 'Georgia', serif;
+      width: 100%;
     }
 
     .language-selector select:focus {
       outline: 2px solid #d4af37;
+      border-radius: 8px;
     }
 
     .language-selector select option {
       background: #2d2d2d;
       color: #f0f0f0;
+      padding: 10px;
     }
 
     header {
-      background: rgba(0, 0, 0, 0.8);
-      padding: 20px 0;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 15px 0;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
     }
 
     nav {
@@ -76,11 +86,16 @@
       color: #d4af37;
       text-transform: uppercase;
       letter-spacing: 2px;
+      transition: color 0.3s ease;
+    }
+
+    .logo:hover {
+      color: #f0c748;
     }
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 25px;
       list-style: none;
       align-items: center;
     }
@@ -91,15 +106,16 @@
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
       position: relative;
       white-space: nowrap;
+      padding: 8px 0;
     }
 
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      bottom: 0;
       left: 50%;
       width: 0;
       height: 2px;
@@ -113,11 +129,15 @@
     }
 
     .nav-links a:hover::after {
-      width: 80%;
+      width: 100%;
     }
 
     .language-item {
-      margin-left: 10px;
+      margin-left: 15px;
+    }
+
+    .language-item .language-selector {
+      min-width: 140px;
     }
 
     .hero {
@@ -137,135 +157,128 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.1) 0%, transparent 50%);
+      background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.15) 0%, transparent 60%);
       pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
+      max-width: 800px;
     }
 
     .hero-content h1 {
-      font-size: 56px;
-      margin-bottom: 20px;
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
       color: #d4af37;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+      font-weight: 300;
+      letter-spacing: 3px;
     }
 
     .hero-content p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: #c0c0c0;
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      color: #e0e0e0;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
     .cta-button {
       display: inline-block;
-      padding: 15px 40px;
-      background: #d4af37;
+      padding: 18px 45px;
+      background: linear-gradient(135deg, #d4af37 0%, #f0c748 100%);
       color: #1a1a1a;
       text-decoration: none;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 2px;
-      border-radius: 5px;
-      transition: all 0.3s;
+      border-radius: 8px;
+      transition: all 0.4s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
     }
 
     .cta-button:hover {
-      background: #f0c748;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+      background: linear-gradient(135deg, #f0c748 0%, #ffd700 100%);
     }
 
     .about-section {
       max-width: 1200px;
-      margin: 80px auto;
+      margin: 100px auto;
       padding: 0 20px;
     }
 
-    .about-section h2 {
+    .section-title {
       text-align: center;
-      font-size: 42px;
-      margin-bottom: 60px;
+      font-size: 3rem;
+      margin-bottom: 4rem;
       color: #d4af37;
       position: relative;
-      padding-bottom: 20px;
+      padding-bottom: 1.5rem;
+      font-weight: 300;
     }
 
-    .about-section h2::after {
+    .section-title::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: 100px;
       height: 3px;
-      background: #d4af37;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
     }
 
     .about-content {
       background: rgba(255, 255, 255, 0.05);
-      padding: 40px;
-      border-radius: 10px;
+      padding: 3rem;
+      border-radius: 15px;
       max-width: 800px;
       margin: 0 auto;
       border: 1px solid rgba(212, 175, 55, 0.2);
-      transition: all 0.3s;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
     }
 
     .about-content:hover {
       transform: translateY(-10px);
       background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+      border-color: rgba(212, 175, 55, 0.4);
     }
 
     .about-content p {
       color: #e0e0e0;
-      font-size: 18px;
+      font-size: 1.2rem;
       line-height: 1.8;
       text-align: center;
+      font-weight: 300;
     }
 
     .gallery-section {
       max-width: 1400px;
-      margin: 80px auto;
+      margin: 100px auto;
       padding: 0 20px;
-    }
-
-    .gallery-section h2 {
-      text-align: center;
-      font-size: 42px;
-      margin-bottom: 60px;
-      color: #d4af37;
-      position: relative;
-      padding-bottom: 20px;
-    }
-
-    .gallery-section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: #d4af37;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
       margin-top: 3rem;
     }
 
     .gallery-item {
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
       background: rgba(255, 255, 255, 0.05);
       cursor: zoom-in;
       border: 1px solid rgba(212, 175, 55, 0.2);
@@ -273,8 +286,9 @@
     }
 
     .gallery-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+      border-color: rgba(212, 175, 55, 0.5);
     }
 
     .gallery-item img {
@@ -283,72 +297,79 @@
       object-fit: cover;
       object-position: center;
       display: block;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
     }
 
     .gallery-item:hover img {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     .gallery-overlay {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(212, 175, 55, 0.8);
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(135deg, #d4af37 0%, #f0c748 100%);
       color: #1a1a1a;
-      padding: 0.45rem 0.85rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      backdrop-filter: blur(4px);
+      padding: 0.6rem 1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      backdrop-filter: blur(10px);
       pointer-events: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .purchase-info {
       background: rgba(255, 255, 255, 0.05);
-      padding: 40px;
-      border-radius: 10px;
+      padding: 3rem;
+      border-radius: 15px;
       max-width: 900px;
-      margin: 60px auto 0;
+      margin: 4rem auto 0;
       border: 1px solid rgba(212, 175, 55, 0.2);
-      transition: all 0.3s;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
     }
 
     .purchase-info:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
       background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+      border-color: rgba(212, 175, 55, 0.4);
     }
 
     .purchase-info p {
-      font-size: 18px;
+      font-size: 1.2rem;
       line-height: 1.8;
       color: #e0e0e0;
       text-align: center;
       margin: 0;
+      font-weight: 300;
     }
 
     .purchase-info strong {
       color: #d4af37;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     footer {
-      background: rgba(0, 0, 0, 0.8);
-      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 3rem 20px;
       text-align: center;
-      margin-top: 80px;
+      margin-top: 100px;
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
     }
 
     footer p {
       color: #c0c0c0;
+      margin-bottom: 0.5rem;
+      font-weight: 300;
     }
 
     /* Lightbox */
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(0, 0, 0, 0.98);
       display: none;
       align-items: center;
       justify-content: center;
@@ -359,12 +380,18 @@
 
     .lightbox.open {
       display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     #lbStage {
       position: relative;
-      max-width: 92vw;
-      max-height: 92vh;
+      max-width: 90vw;
+      max-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -384,41 +411,45 @@
       width: auto;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
       user-select: none;
       -webkit-user-drag: none;
     }
 
     .lightbox .close-btn {
       position: absolute;
-      top: 18px;
-      right: 18px;
+      top: 20px;
+      right: 20px;
       background: rgba(212, 175, 55, 0.2);
       border: 2px solid rgba(212, 175, 55, 0.6);
       color: #d4af37;
-      font-size: 1rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
       cursor: pointer;
-      transition: 0.2s ease;
+      transition: all 0.3s ease;
       font-weight: bold;
+      backdrop-filter: blur(10px);
     }
 
     .lightbox .close-btn:hover {
       background: rgba(212, 175, 55, 0.3);
       border-color: #d4af37;
+      transform: scale(1.1);
     }
 
     .lightbox .counter {
       position: absolute;
-      bottom: 18px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       color: #d4af37;
-      font-size: 1rem;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
+      font-size: 1.1rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      font-weight: 600;
     }
 
     .lightbox .nav {
@@ -433,21 +464,22 @@
     .lightbox .nav button {
       pointer-events: auto;
       background: rgba(212, 175, 55, 0.2);
-      border: 1px solid rgba(212, 175, 55, 0.5);
+      border: 2px solid rgba(212, 175, 55, 0.5);
       color: #d4af37;
-      font-size: 1.25rem;
-      padding: 0.6rem 0.9rem;
-      margin: 0 0.75rem;
-      border-radius: 10px;
+      font-size: 1.5rem;
+      padding: 1rem 1.2rem;
+      margin: 0 1rem;
+      border-radius: 12px;
       cursor: pointer;
-      transition: 0.2s ease;
-      backdrop-filter: blur(2px);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
       font-weight: bold;
     }
 
     .lightbox .nav button:hover {
       background: rgba(212, 175, 55, 0.3);
       border-color: #d4af37;
+      transform: scale(1.1);
     }
 
     body.lb-lock {
@@ -460,6 +492,7 @@
       flex-direction: column;
       cursor: pointer;
       gap: 4px;
+      padding: 5px;
     }
 
     .menu-toggle span {
@@ -467,6 +500,19 @@
       height: 3px;
       background: #d4af37;
       transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
     }
 
     @media (max-width: 768px) {
@@ -479,15 +525,16 @@
         top: 70px;
         left: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(0, 0, 0, 0.98);
         flex-direction: column;
-        padding: 20px;
-        gap: 15px;
+        padding: 2rem;
+        gap: 1rem;
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
+        transition: all 0.4s ease;
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
       }
 
       .nav-links.active {
@@ -496,65 +543,71 @@
         visibility: visible;
       }
 
-      .language-selector {
-        margin-top: 10px;
+      .language-item {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+
+      .language-item .language-selector {
+        min-width: 100%;
       }
 
       .hero-content h1 {
-        font-size: 36px;
+        font-size: 2.5rem;
       }
 
       .hero-content p {
-        font-size: 16px;
+        font-size: 1.1rem;
       }
 
       .nav-links a {
-        font-size: 16px;
-        padding: 10px 0;
+        font-size: 1.1rem;
+        padding: 12px 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
       }
 
       .logo {
-        font-size: 18px;
+        font-size: 1.2rem;
       }
 
-      .about-section h2,
-      .gallery-section h2 {
-        font-size: 32px;
+      .section-title {
+        font-size: 2.2rem;
       }
 
       .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
       }
 
       .gallery-item {
         aspect-ratio: 3 / 4;
       }
 
-      .about-content {
-        padding: 20px;
-      }
-
-      .purchase-info {
-        padding: 20px;
+      .about-content, .purchase-info {
+        padding: 2rem;
       }
 
       .lightbox .nav button {
-        font-size: 1.35rem;
+        font-size: 1.3rem;
         padding: 0.8rem 1rem;
         margin: 0 0.5rem;
       }
 
       .lightbox .close-btn {
-        font-size: 1.1rem;
+        font-size: 1rem;
         padding: 0.5rem 0.9rem;
-        top: 16px;
-        right: 16px;
+        top: 15px;
+        right: 15px;
       }
 
       .lightbox .counter {
-        font-size: 1.05rem;
-        bottom: 16px;
+        font-size: 1rem;
+        bottom: 15px;
       }
     }
 
@@ -564,12 +617,30 @@
         animation: none !important;
       }
     }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1a1a1a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #d4af37;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f0c748;
+    }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <div class="logo" id="logoText">Shima Galerie</div>
+      <div class="logo" id="logoText">Shima Gallery</div>
       
       <div class="menu-toggle" id="menuToggle">
         <span></span>
@@ -579,14 +650,14 @@
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" id="navHome">Home</a></li>
-        <li><a href="#about" id="navAbout">Über mich</a></li>
-        <li><a href="#gallery" id="navGallery">Galerie</a></li>
-        <li><a href="#contact" id="navContact">Kontakt</a></li>
+        <li><a href="#about" id="navAbout">About Me</a></li>
+        <li><a href="#gallery" id="navGallery">Gallery</a></li>
+        <li><a href="#contact" id="navContact">Contact</a></li>
         <li class="language-item">
           <div class="language-selector">
             <select id="languageSelect" onchange="changeLanguage()">
-              <option value="de">Deutsch</option>
               <option value="en">English</option>
+              <option value="de">Deutsch</option>
               <option value="fa">فارسی</option>
             </select>
           </div>
@@ -597,95 +668,79 @@
 
   <section id="home" class="hero">
     <div class="hero-content">
-      <h1 id="heroTitle">Shima Galerie</h1>
-      <p id="heroSubtitle">Realistische Kunstwerke mit Kugelschreiber & Bleistift ✏️</p>
-      <a href="#gallery" class="cta-button" id="ctaButton">Galerie entdecken</a>
+      <h1 id="heroTitle">Shima Gallery</h1>
+      <p id="heroSubtitle">Realistic Artwork with Pen & Pencil ✏️</p>
+      <a href="#gallery" class="cta-button" id="ctaButton">Explore Gallery</a>
     </div>
   </section>
 
   <section id="about" class="about-section">
-    <h2 id="aboutTitle">Über mich</h2>
+    <h2 class="section-title" id="aboutTitle">About Me</h2>
     <div class="about-content">
       <p id="aboutText">
-        Willkommen in meiner Galerie! Ich bin Shima und erschaffe realistische Kunstwerke 
-        mit Kugelschreiber und Bleistift. Jedes Werk entsteht durch Geduld, Präzision 
-        und Leidenschaft für Details. Meine Inspiration finde ich in der Schönheit 
-        des Alltäglichen und der Komplexität menschlicher Ausdrucksformen.
+        Welcome to my gallery! I am Shima and I create realistic artworks with pen and pencil. 
+        Each piece is created with patience, precision and passion for detail. I find my inspiration 
+        in the beauty of everyday life and the complexity of human expression.
       </p>
     </div>
   </section>
 
   <section id="gallery" class="gallery-section">
-    <h2 id="galleryTitle">Meine Kunstwerke</h2>
+    <h2 class="section-title" id="galleryTitle">My Artworks</h2>
     <div class="gallery" id="galleryGrid">
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0471.JPG" alt="Realistische Porträtzeichnung mit Kugelschreiber"><div class="gallery-overlay"><span>1</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0472.JPG" alt="Detailierte Bleistiftzeichnung eines Gesichts"><div class="gallery-overlay"><span>2</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0474.JPG" alt="Kugelschreiber Kunst mit Schattierungen"><div class="gallery-overlay"><span>3</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0476.JPG" alt="Realistische Augenzeichnung mit Bleistift"><div class="gallery-overlay"><span>4</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0477.JPG" alt="Porträtkunst mit Kugelschreiber Technik"><div class="gallery-overlay"><span>5</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0479.JPG" alt="Detaillierte Gesichtsstudie mit Stift"><div class="gallery-overlay"><span>6</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0481.JPG" alt="Kunstwerk mit Schattierungstechniken"><div class="gallery-overlay"><span>7</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0482.JPG" alt="Realistische Zeichnung mit Präzision"><div class="gallery-overlay"><span>8</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0485.JPG" alt="Bleistift Portrait mit Details"><div class="gallery-overlay"><span>9</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0486.JPG" alt="Kugelschreiber Kunstwerk im Profil"><div class="gallery-overlay"><span>10</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-09-19_01-14-34.jpg" alt="Realistische Handzeichnung mit Stift"><div class="gallery-overlay"><span>11</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-36.jpg" alt="Detaillierte Porträtstudie"><div class="gallery-overlay"><span>12</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-44.jpg" alt="Kugelschreiber Kunst mit Tiefe"><div class="gallery-overlay"><span>13</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-51.jpg" alt="Bleistiftzeichnung mit Textur"><div class="gallery-overlay"><span>14</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-05-39.jpg" alt="Realistische Gesichtsausdrücke"><div class="gallery-overlay"><span>15</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-08.jpg" alt="Kunstwerk mit Licht und Schatten"><div class="gallery-overlay"><span>16</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-16.jpg" alt="Detaillierte Stiftzeichnung"><div class="gallery-overlay"><span>17</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-24.jpg" alt="Porträt mit emotionalem Ausdruck"><div class="gallery-overlay"><span>18</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-31.jpg" alt="Realistische Haarzeichnung"><div class="gallery-overlay"><span>19</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-39.jpg" alt="Kugelschreiber Kunst im Detail"><div class="gallery-overlay"><span>20</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-52.jpg" alt="Bleistift Studie mit Präzision"><div class="gallery-overlay"><span>21</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-09.jpg" alt="Realistische Augenpartie"><div class="gallery-overlay"><span>22</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-39.jpg" alt="Kunstwerk mit Tiefenwirkung"><div class="gallery-overlay"><span>23</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-54.jpg" alt="Porträtzeichnung mit Stift"><div class="gallery-overlay"><span>24</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-09.jpg" alt="Realistische Gesichtszüge"><div class="gallery-overlay"><span>25</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-16.jpg" alt="Detaillierte Bleistiftkunst"><div class="gallery-overlay"><span>26</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0471.JPG" alt="Realistic portrait drawing with pen"><div class="gallery-overlay"><span>1</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0472.JPG" alt="Detailed pencil drawing of a face"><div class="gallery-overlay"><span>2</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0474.JPG" alt="Pen art with shading techniques"><div class="gallery-overlay"><span>3</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0476.JPG" alt="Realistic eye drawing with pencil"><div class="gallery-overlay"><span>4</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0477.JPG" alt="Portrait art with pen technique"><div class="gallery-overlay"><span>5</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0479.JPG" alt="Detailed face study with pen"><div class="gallery-overlay"><span>6</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0481.JPG" alt="Artwork with shading techniques"><div class="gallery-overlay"><span>7</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0482.JPG" alt="Realistic drawing with precision"><div class="gallery-overlay"><span>8</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0485.JPG" alt="Pencil portrait with details"><div class="gallery-overlay"><span>9</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0486.JPG" alt="Pen artwork in profile"><div class="gallery-overlay"><span>10</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-09-19_01-14-34.jpg" alt="Realistic hand drawing with pen"><div class="gallery-overlay"><span>11</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-36.jpg" alt="Detailed portrait study"><div class="gallery-overlay"><span>12</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-44.jpg" alt="Pen art with depth"><div class="gallery-overlay"><span>13</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-51.jpg" alt="Pencil drawing with texture"><div class="gallery-overlay"><span>14</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-05-39.jpg" alt="Realistic facial expressions"><div class="gallery-overlay"><span>15</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-08.jpg" alt="Artwork with light and shadow"><div class="gallery-overlay"><span>16</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-16.jpg" alt="Detailed pen drawing"><div class="gallery-overlay"><span>17</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-24.jpg" alt="Portrait with emotional expression"><div class="gallery-overlay"><span>18</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-31.jpg" alt="Realistic hair drawing"><div class="gallery-overlay"><span>19</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-39.jpg" alt="Pen art in detail"><div class="gallery-overlay"><span>20</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-52.jpg" alt="Pencil study with precision"><div class="gallery-overlay"><span>21</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-09.jpg" alt="Realistic eye area"><div class="gallery-overlay"><span>22</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-39.jpg" alt="Artwork with depth effect"><div class="gallery-overlay"><span>23</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-54.jpg" alt="Portrait drawing with pen"><div class="gallery-overlay"><span>24</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-09.jpg" alt="Realistic facial features"><div class="gallery-overlay"><span>25</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-16.jpg" alt="Detailed pencil art"><div class="gallery-overlay"><span>26</span></div></div>
     </div>
 
     <div class="purchase-info">
       <p id="purchaseInfo">
-        <strong>Interessiert an einem Kunstwerk?</strong><br />
-        Für Verkauf, Ausstellungen, Entwürfe oder Zusammenarbeit kontaktieren Sie mich bitte unter: <strong>ShimaArtist1994@gmail.com</strong>
+        <strong>Interested in an artwork?</strong><br />
+        For purchase, exhibitions, commissions or collaborations, please contact me at: <strong>ShimaArtist1994@gmail.com</strong>
       </p>
     </div>
   </section>
 
   <footer id="contact">
-    <p id="footerText">Erstellt von Bikineh</p>
-    <p>&copy; 2024 Shima Galerie. Alle Rechte vorbehalten.</p>
+    <p id="footerText">Created by Bikineh</p>
+    <p>&copy; 2024 Shima Gallery. All rights reserved.</p>
   </footer>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Bild Großansicht">
-    <button class="close-btn" id="lbClose" aria-label="Schließen (Esc)">✕</button>
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image enlarged view">
+    <button class="close-btn" id="lbClose" aria-label="Close (Esc)">✕</button>
     <div class="nav">
-      <button id="lbPrev" aria-label="Vorheriges (←)">←</button>
-      <button id="lbNext" aria-label="Nächstes (→)">→</button>
+      <button id="lbPrev" aria-label="Previous (←)">←</button>
+      <button id="lbNext" aria-label="Next (→)">→</button>
     </div>
-    <div id="lbStage"><img id="lbImg" src="" alt="Großes Bild" /></div>
+    <div id="lbStage"><img id="lbImg" src="" alt="Large image" /></div>
     <div class="counter" id="lbCounter">1 / 1</div>
   </div>
 
   <script>
     const translations = {
-      de: {
-        logoText: 'Shima Galerie',
-        navHome: 'Home',
-        navAbout: 'Über mich',
-        navGallery: 'Galerie',
-        navContact: 'Kontakt',
-        heroTitle: 'Shima Galerie',
-        heroSubtitle: 'Realistische Kunstwerke mit Kugelschreiber & Bleistift ✏️',
-        ctaButton: 'Galerie entdecken',
-        aboutTitle: 'Über mich',
-        aboutText: 'Willkommen in meiner Galerie! Ich bin Shima und erschaffe realistische Kunstwerke mit Kugelschreiber und Bleistift. Jedes Werk entsteht durch Geduld, Präzision und Leidenschaft für Details. Meine Inspiration finde ich in der Schönheit des Alltäglichen und der Komplexität menschlicher Ausdrucksformen.',
-        galleryTitle: 'Meine Kunstwerke',
-        purchaseInfo: '<strong>Interessiert an einem Kunstwerk?</strong><br>Für Verkauf, Ausstellungen, Entwürfe oder Zusammenarbeit kontaktieren Sie mich bitte unter: <strong>ShimaArtist1994@gmail.com</strong>',
-        footerText: 'Erstellt von Bikineh'
-      },
       en: {
         logoText: 'Shima Gallery',
         navHome: 'Home',
@@ -700,6 +755,21 @@
         galleryTitle: 'My Artworks',
         purchaseInfo: '<strong>Interested in an artwork?</strong><br>For purchase, exhibitions, commissions or collaborations, please contact me at: <strong>ShimaArtist1994@gmail.com</strong>',
         footerText: 'Created by Bikineh'
+      },
+      de: {
+        logoText: 'Shima Galerie',
+        navHome: 'Home',
+        navAbout: 'Über mich',
+        navGallery: 'Galerie',
+        navContact: 'Kontakt',
+        heroTitle: 'Shima Galerie',
+        heroSubtitle: 'Realistische Kunstwerke mit Kugelschreiber & Bleistift ✏️',
+        ctaButton: 'Galerie entdecken',
+        aboutTitle: 'Über mich',
+        aboutText: 'Willkommen in meiner Galerie! Ich bin Shima und erschaffe realistische Kunstwerke mit Kugelschreiber und Bleistift. Jedes Werk entsteht durch Geduld, Präzision und Leidenschaft für Details. Meine Inspiration finde ich in der Schönheit des Alltäglichen und der Komplexität menschlicher Ausdrucksformen.',
+        galleryTitle: 'Meine Kunstwerke',
+        purchaseInfo: '<strong>Interessiert an einem Kunstwerk?</strong><br>Für Verkauf, Ausstellungen, Entwürfe oder Zusammenarbeit kontaktieren Sie mich bitte unter: <strong>ShimaArtist1994@gmail.com</strong>',
+        footerText: 'Erstellt von Bikineh'
       },
       fa: {
         logoText: 'گالری شیما',
@@ -757,6 +827,7 @@
       });
     });
 
+    // Smooth scrolling for navigation links
     document.querySelectorAll('nav a, .cta-button').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -768,6 +839,7 @@
       });
     });
 
+    // Lightbox functionality
     (function setupLightbox() {
       const lb = document.getElementById('lightbox');
       const lbStage = document.getElementById('lbStage');
@@ -803,7 +875,7 @@
       cards.forEach((card, i) => {
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', 'Großansicht öffnen');
+        card.setAttribute('aria-label', 'Open enlarged view');
         card.addEventListener('keydown', (e) => { if (e.key === 'Enter') openAt(i); });
       });
 
@@ -903,14 +975,12 @@
       });
     })();
 
-    console.log('✅ Website erfolgreich geladen!');
-    console.log('🖼️  Echte Bilder eingefügt: 26 Kunstwerke');
-    console.log('🎨 Funktionen getestet:');
-    console.log('   - Navigation: Home, Über mich, Galerie, Kontakt, Sprache');
-    console.log('   - Sprachumschaltung (DE/EN/FA)');
-    console.log('   - Mobile Menu');
-    console.log('   - Lightbox mit Zoom und Navigation');
-    console.log('   - Responsive Design');
+    console.log('🚀 Website successfully loaded!');
+    console.log('🎨 Optimized features:');
+    console.log('   - English as default language');
+    console.log('   - Enhanced animations and hover effects');
+    console.log('   - Improved mobile menu');
+    console.log('   - Better performance and accessibility');
   </script>
 </body>
 </html>
