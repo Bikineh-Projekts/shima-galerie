@@ -10,6 +10,7 @@
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#1a1a1a" />
   <style>
+    /* All your existing CSS remains exactly the same */
     * {
       margin: 0;
       padding: 0;
@@ -1163,22 +1164,22 @@
         <h3 style="color: #d4af37; margin-bottom: 2rem; text-align: center;">Order Inquiry Form</h3>
         
         <div class="form-group">
-          <label for="firstName">First Name *</label>
+          <label for="firstName" id="firstNameLabel">First Name *</label>
           <input type="text" id="firstName" required placeholder="Enter your first name">
         </div>
 
         <div class="form-group">
-          <label for="lastName">Last Name *</label>
+          <label for="lastName" id="lastNameLabel">Last Name *</label>
           <input type="text" id="lastName" required placeholder="Enter your last name">
         </div>
 
         <div class="form-group">
-          <label for="email">Email Address *</label>
+          <label for="email" id="emailLabel">Email Address *</label>
           <input type="email" id="email" required placeholder="Enter your email address">
         </div>
 
         <div class="form-group">
-          <label for="message">Additional Message</label>
+          <label for="message" id="messageLabel">Additional Message</label>
           <textarea id="message" rows="4" placeholder="Any additional information or questions..."></textarea>
         </div>
 
@@ -1264,7 +1265,11 @@
         confirmationMessage: 'Your purchase inquiry has been sent to Shima. You will receive a confirmation email shortly.',
         emptyCart: 'No artworks selected yet.',
         selectFromGallery: 'Please select artworks from the gallery first.',
-        remove: 'Remove'
+        remove: 'Remove',
+        firstNameLabel: 'First Name *',
+        lastNameLabel: 'Last Name *',
+        emailLabel: 'Email Address *',
+        messageLabel: 'Additional Message'
       },
       de: {
         logoText: 'Shima Galerie',
@@ -1288,7 +1293,11 @@
         confirmationMessage: 'Ihre Kaufanfrage wurde an Shima gesendet. Sie erhalten in Kürze eine Bestätigungs-E-Mail.',
         emptyCart: 'Noch keine Kunstwerke ausgewählt.',
         selectFromGallery: 'Bitte wählen Sie zuerst Kunstwerke aus der Galerie aus.',
-        remove: 'Entfernen'
+        remove: 'Entfernen',
+        firstNameLabel: 'Vorname *',
+        lastNameLabel: 'Nachname *',
+        emailLabel: 'E-Mail-Adresse *',
+        messageLabel: 'Zusätzliche Nachricht'
       },
       fa: {
         logoText: 'گالری شیما',
@@ -1312,7 +1321,11 @@
         confirmationMessage: 'درخواست خرید شما به شیما ارسال شد. به زودی ایمیل تأیید دریافت خواهید کرد.',
         emptyCart: 'هنوز هیچ اثر هنری انتخاب نشده است.',
         selectFromGallery: 'لطفاً ابتدا آثار هنری را از گالری انتخاب کنید.',
-        remove: 'حذف'
+        remove: 'حذف',
+        firstNameLabel: 'نام *',
+        lastNameLabel: 'نام خانوادگی *',
+        emailLabel: 'آدرس ایمیل *',
+        messageLabel: 'پیام اضافی'
       }
     };
 
@@ -1479,6 +1492,10 @@ This inquiry was sent from Shima Gallery website.
       const purchaseTitle = document.getElementById('purchaseTitle');
       const submitButton = document.getElementById('submitButton');
       const successMessage = document.getElementById('successMessage');
+      const firstNameLabel = document.getElementById('firstNameLabel');
+      const lastNameLabel = document.getElementById('lastNameLabel');
+      const emailLabel = document.getElementById('emailLabel');
+      const messageLabel = document.getElementById('messageLabel');
       
       if (purchaseTitle) purchaseTitle.textContent = t.purchaseTitle;
       if (submitButton) submitButton.textContent = t.sendInquiry;
@@ -1486,6 +1503,10 @@ This inquiry was sent from Shima Gallery website.
         successMessage.querySelector('h3').textContent = t.thankYou;
         successMessage.querySelector('p').textContent = t.confirmationMessage;
       }
+      if (firstNameLabel) firstNameLabel.textContent = t.firstNameLabel;
+      if (lastNameLabel) lastNameLabel.textContent = t.lastNameLabel;
+      if (emailLabel) emailLabel.textContent = t.emailLabel;
+      if (messageLabel) messageLabel.textContent = t.messageLabel;
       
       document.body.style.direction = lang === 'fa' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
