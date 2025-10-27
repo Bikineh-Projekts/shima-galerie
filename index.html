@@ -770,9 +770,9 @@
       </div>
 
       <div class="purchase-info">
-        <p>
-          <strong>Interested in purchasing an artwork?</strong><br />
-          Contact me directly to discuss availability, pricing, and commission opportunities.
+        <p id="purchaseText">
+          <strong id="purchaseStrong">Interested in purchasing an artwork?</strong><br />
+          <span id="purchaseDescription">Contact me directly to discuss availability, pricing, and commission opportunities.</span>
         </p>
       </div>
     </section>
@@ -825,7 +825,9 @@
         aboutText: 'Welcome to my gallery! I am Shima and I create realistic artworks with pen and pencil. Each piece is created with patience, precision and passion for detail. I find my inspiration in the beauty of everyday life and the complexity of human expression.',
         contactTitle: 'Contact',
         contactText: 'Interested in my artwork? For purchase, exhibitions, commissions or collaborations, feel free to reach out to me. I\'d love to hear from you!',
-        emailButton: 'ShimaArtist1994@gmail.com'
+        emailButton: 'ShimaArtist1994@gmail.com',
+        purchaseStrong: 'Interested in purchasing an artwork?',
+        purchaseDescription: 'Contact me directly to discuss availability, pricing, and commission opportunities.'
       },
       de: {
         logoText: 'Shima Galerie',
@@ -839,7 +841,9 @@
         aboutText: 'Willkommen in meiner Galerie! Ich bin Shima und erschaffe realistische Kunstwerke mit Kugelschreiber und Bleistift. Jedes Werk entsteht durch Geduld, Präzision und Leidenschaft für Details. Meine Inspiration finde ich in der Schönheit des Alltäglichen und der Komplexität menschlicher Ausdrucksformen.',
         contactTitle: 'Kontakt',
         contactText: 'Interessiert an meinen Kunstwerken? Für Verkauf, Ausstellungen, Auftragsarbeiten oder Zusammenarbeit können Sie mich gerne kontaktieren. Ich freue mich von Ihnen zu hören!',
-        emailButton: 'ShimaArtist1994@gmail.com'
+        emailButton: 'ShimaArtist1994@gmail.com',
+        purchaseStrong: 'Interessiert an einem Kunstwerk?',
+        purchaseDescription: 'Kontaktieren Sie mich direkt, um Verfügbarkeit, Preise und Auftragsarbeiten zu besprechen.'
       },
       fa: {
         logoText: 'گالری شیما',
@@ -853,7 +857,9 @@
         aboutText: 'به گالری من خوش آمدید! من شیما هستم و آثار هنری واقع‌گرایانه با خودکار و مداد خلق می‌کنم. هر اثر با صبر، دقت و اشتیاق به جزئیات ایجاد می‌شود. الهام من را در زیبایی زندگی روزمره و پیچیدگی بیان انسانی می‌یابم.',
         contactTitle: 'تماس',
         contactText: 'به آثار هنری من علاقه‌مند هستید؟ برای خرید، نمایشگاه‌ها، سفارشات یا همکاری، می‌توانید با من تماس بگیرید. خوشحال می‌شوم پیام شما را دریافت کنم!',
-        emailButton: 'ShimaArtist1994@gmail.com'
+        emailButton: 'ShimaArtist1994@gmail.com',
+        purchaseStrong: 'علاقه‌مند به خرید یک اثر هنری هستید؟',
+        purchaseDescription: 'مستقیماً با من تماس بگیرید تا در مورد موجودی، قیمت‌ها و فرصت‌های سفارش کاری صحبت کنیم.'
       }
     };
 
@@ -891,6 +897,8 @@
       document.getElementById('contactTitle').textContent = t.contactTitle;
       document.getElementById('contactText').textContent = t.contactText;
       document.getElementById('emailButton').textContent = t.emailButton;
+      document.getElementById('purchaseStrong').textContent = t.purchaseStrong;
+      document.getElementById('purchaseDescription').textContent = t.purchaseDescription;
       
       document.body.style.direction = lang === 'fa' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
@@ -1049,8 +1057,8 @@
       });
     })();
 
-    console.log('🎨 Website loaded with classic gold & black design!');
-    console.log('🖤 Color palette: Elegant black with gold accents');
+    console.log('🎨 Website loaded with complete translations!');
+    console.log('🌐 All text now properly translated in Persian');
     console.log('📱 Navigation: Home → Gallery → About Me');
   </script>
 </body>
