@@ -351,6 +351,28 @@
       font-weight: 600;
     }
 
+    .email-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #d4af37 0%, #f0c748 100%);
+      color: #1a1a1a !important;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .email-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+      background: linear-gradient(135deg, #f0c748 0%, #ffd700 100%);
+      color: #1a1a1a !important;
+      border-color: #d4af37;
+    }
+
     footer {
       background: rgba(0, 0, 0, 0.9);
       padding: 3rem 20px;
@@ -609,6 +631,11 @@
         font-size: 1rem;
         bottom: 15px;
       }
+
+      .email-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -704,22 +731,21 @@
       <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-51.jpg" alt="Pencil drawing with texture"><div class="gallery-overlay"><span>14</span></div></div>
       <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-05-39.jpg" alt="Realistic facial expressions"><div class="gallery-overlay"><span>15</span></div></div>
       <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-08.jpg" alt="Artwork with light and shadow"><div class="gallery-overlay"><span>16</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-16.jpg" alt="Detailed pen drawing"><div class="gallery-overlay"><span>17</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-24.jpg" alt="Portrait with emotional expression"><div class="gallery-overlay"><span>18</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-31.jpg" alt="Realistic hair drawing"><div class="gallery-overlay"><span>19</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-39.jpg" alt="Pen art in detail"><div class="gallery-overlay"><span>20</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-52.jpg" alt="Pencil study with precision"><div class="gallery-overlay"><span>21</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-09.jpg" alt="Realistic eye area"><div class="gallery-overlay"><span>22</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-39.jpg" alt="Artwork with depth effect"><div class="gallery-overlay"><span>23</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-54.jpg" alt="Portrait drawing with pen"><div class="gallery-overlay"><span>24</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-09.jpg" alt="Realistic facial features"><div class="gallery-overlay"><span>25</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-16.jpg" alt="Detailed pencil art"><div class="gallery-overlay"><span>26</span></div></div>
+      <!-- Bilder 17, 18, 19 wurden entfernt -->
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-39.jpg" alt="Pen art in detail"><div class="gallery-overlay"><span>17</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-52.jpg" alt="Pencil study with precision"><div class="gallery-overlay"><span>18</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-09.jpg" alt="Realistic eye area"><div class="gallery-overlay"><span>19</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-39.jpg" alt="Artwork with depth effect"><div class="gallery-overlay"><span>20</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-54.jpg" alt="Portrait drawing with pen"><div class="gallery-overlay"><span>21</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-09.jpg" alt="Realistic facial features"><div class="gallery-overlay"><span>22</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-16.jpg" alt="Detailed pencil art"><div class="gallery-overlay"><span>23</span></div></div>
     </div>
 
     <div class="purchase-info">
       <p id="purchaseInfo">
         <strong>Interested in an artwork?</strong><br />
-        For purchase, exhibitions, commissions or collaborations, please contact me at: <strong>ShimaArtist1994@gmail.com</strong>
+        For purchase, exhibitions, commissions or collaborations, please contact me at:<br>
+        <a href="mailto:ShimaArtist1994@gmail.com" class="email-button">ShimaArtist1994@gmail.com</a>
       </p>
     </div>
   </section>
@@ -753,7 +779,7 @@
         aboutTitle: 'About Me',
         aboutText: 'Welcome to my gallery! I am Shima and I create realistic artworks with pen and pencil. Each piece is created with patience, precision and passion for detail. I find my inspiration in the beauty of everyday life and the complexity of human expression.',
         galleryTitle: 'My Artworks',
-        purchaseInfo: '<strong>Interested in an artwork?</strong><br>For purchase, exhibitions, commissions or collaborations, please contact me at: <strong>ShimaArtist1994@gmail.com</strong>',
+        purchaseInfo: '<strong>Interested in an artwork?</strong><br>For purchase, exhibitions, commissions or collaborations, please contact me at:<br><a href="mailto:ShimaArtist1994@gmail.com" class="email-button">ShimaArtist1994@gmail.com</a>',
         footerText: 'Created by Bikineh'
       },
       de: {
@@ -768,7 +794,7 @@
         aboutTitle: 'Über mich',
         aboutText: 'Willkommen in meiner Galerie! Ich bin Shima und erschaffe realistische Kunstwerke mit Kugelschreiber und Bleistift. Jedes Werk entsteht durch Geduld, Präzision und Leidenschaft für Details. Meine Inspiration finde ich in der Schönheit des Alltäglichen und der Komplexität menschlicher Ausdrucksformen.',
         galleryTitle: 'Meine Kunstwerke',
-        purchaseInfo: '<strong>Interessiert an einem Kunstwerk?</strong><br>Für Verkauf, Ausstellungen, Entwürfe oder Zusammenarbeit kontaktieren Sie mich bitte unter: <strong>ShimaArtist1994@gmail.com</strong>',
+        purchaseInfo: '<strong>Interessiert an einem Kunstwerk?</strong><br>Für Verkauf, Ausstellungen, Entwürfe oder Zusammenarbeit kontaktieren Sie mich bitte unter:<br><a href="mailto:ShimaArtist1994@gmail.com" class="email-button">ShimaArtist1994@gmail.com</a>',
         footerText: 'Erstellt von Bikineh'
       },
       fa: {
@@ -783,7 +809,7 @@
         aboutTitle: 'درباره من',
         aboutText: 'به گالری من خوش آمدید! من شیما هستم و آثار هنری واقع‌گرایانه با خودکار و مداد خلق می‌کنم. هر اثر با صبر، دقت و اشتیاق به جزئیات ایجاد می‌شود. الهام من را در زیبایی زندگی روزمره و پیچیدگی بیان انسانی می‌یابم.',
         galleryTitle: 'آثار هنری من',
-        purchaseInfo: '<strong>به یک اثر هنری علاقه‌مند هستید؟</strong><br>برای خرید، نمایشگاه‌ها، سفارشات یا همکاری، لطفاً با من تماس بگیرید: <strong>ShimaArtist1994@gmail.com</strong>',
+        purchaseInfo: '<strong>به یک اثر هنری علاقه‌مند هستید؟</strong><br>برای خرید، نمایشگاه‌ها، سفارشات یا همکاری، لطفاً با من تماس بگیرید:<br><a href="mailto:ShimaArtist1994@gmail.com" class="email-button">ShimaArtist1994@gmail.com</a>',
         footerText: 'ساخته شده توسط بی کینه'
       }
     };
@@ -977,10 +1003,9 @@
 
     console.log('🚀 Website successfully loaded!');
     console.log('🎨 Optimized features:');
-    console.log('   - English as default language');
-    console.log('   - Enhanced animations and hover effects');
-    console.log('   - Improved mobile menu');
-    console.log('   - Better performance and accessibility');
+    console.log('   - Removed images 17, 18, 19');
+    console.log('   - Working email button with mailto: link');
+    console.log('   - Enhanced email button styling');
   </script>
 </body>
 </html>
