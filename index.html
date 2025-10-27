@@ -8,7 +8,7 @@
   <meta property="og:title" content="Shima Gallery – Realistic Art" />
   <meta property="og:description" content="Pen & pencil art by Shima. Gallery & contact." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#1a1a1a" />
+  <meta name="theme-color" content="#2c5530" />
   <style>
     * {
       margin: 0;
@@ -18,8 +18,8 @@
 
     body {
       font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      color: #f0f0f0;
+      background: linear-gradient(135deg, #1a2e1a 0%, #2c5530 100%);
+      color: #f8f9fa;
       line-height: 1.6;
       min-height: 100vh;
     }
@@ -29,13 +29,13 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 8px;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      border: 1px solid rgba(139, 195, 74, 0.3);
       transition: all 0.3s ease;
     }
 
     .language-selector:hover {
       background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(212, 175, 55, 0.5);
+      border-color: rgba(139, 195, 74, 0.5);
     }
 
     .language-selector select {
@@ -43,7 +43,7 @@
       font-size: 1rem;
       border: none;
       background: transparent;
-      color: #f0f0f0;
+      color: #f8f9fa;
       cursor: pointer;
       font-weight: 500;
       font-family: 'Georgia', serif;
@@ -51,25 +51,25 @@
     }
 
     .language-selector select:focus {
-      outline: 2px solid #d4af37;
+      outline: 2px solid #8bc34a;
       border-radius: 8px;
     }
 
     .language-selector select option {
-      background: #2d2d2d;
-      color: #f0f0f0;
+      background: #2c5530;
+      color: #f8f9fa;
       padding: 10px;
     }
 
     header {
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(28, 49, 28, 0.95);
       padding: 15px 0;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+      border-bottom: 1px solid rgba(139, 195, 74, 0.2);
     }
 
     nav {
@@ -84,14 +84,14 @@
     .logo {
       font-size: 24px;
       font-weight: bold;
-      color: #d4af37;
+      color: #8bc34a;
       text-transform: uppercase;
       letter-spacing: 2px;
       transition: color 0.3s ease;
     }
 
     .logo:hover {
-      color: #f0c748;
+      color: #aed581;
     }
 
     .nav-links {
@@ -102,7 +102,7 @@
     }
 
     .nav-links a {
-      color: #f0f0f0;
+      color: #f8f9fa;
       text-decoration: none;
       font-size: 14px;
       text-transform: uppercase;
@@ -120,13 +120,13 @@
       left: 50%;
       width: 0;
       height: 2px;
-      background: #d4af37;
+      background: #8bc34a;
       transition: all 0.3s ease;
       transform: translateX(-50%);
     }
 
     .nav-links a:hover {
-      color: #d4af37;
+      color: #8bc34a;
     }
 
     .nav-links a:hover::after {
@@ -160,6 +160,7 @@
       justify-content: center;
       text-align: center;
       padding: 0 20px;
+      background: radial-gradient(circle at center, #2c5530 0%, #1a2e1a 100%);
     }
 
     .home-content {
@@ -169,10 +170,18 @@
     .home-content h1 {
       font-size: 4rem;
       margin-bottom: 2rem;
-      color: #d4af37;
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+      color: #8bc34a;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
       font-weight: 300;
       letter-spacing: 3px;
+    }
+
+    .home-content p {
+      font-size: 1.4rem;
+      margin-bottom: 3rem;
+      color: #e8f5e8;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
     .home-buttons {
@@ -186,8 +195,8 @@
     .page-button {
       display: inline-block;
       padding: 18px 45px;
-      background: linear-gradient(135deg, #d4af37 0%, #f0c748 100%);
-      color: #1a1a1a;
+      background: linear-gradient(135deg, #8bc34a 0%, #aed581 100%);
+      color: #1a2e1a;
       text-decoration: none;
       font-weight: bold;
       text-transform: uppercase;
@@ -197,18 +206,18 @@
       border: none;
       cursor: pointer;
       font-size: 1rem;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
     }
 
     .page-button:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-      background: linear-gradient(135deg, #f0c748 0%, #ffd700 100%);
+      box-shadow: 0 8px 25px rgba(139, 195, 74, 0.5);
+      background: linear-gradient(135deg, #aed581 0%, #c5e1a5 100%);
     }
 
-    /* About & Contact Page */
-    .about-contact-page {
-      max-width: 1200px;
+    /* Gallery Page */
+    .gallery-page {
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -217,7 +226,7 @@
       text-align: center;
       font-size: 3rem;
       margin-bottom: 4rem;
-      color: #d4af37;
+      color: #8bc34a;
       position: relative;
       padding-bottom: 1.5rem;
       font-weight: 300;
@@ -231,89 +240,7 @@
       transform: translateX(-50%);
       width: 100px;
       height: 3px;
-      background: linear-gradient(90deg, transparent, #d4af37, transparent);
-    }
-
-    .about-content {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 3rem;
-      border-radius: 15px;
-      max-width: 800px;
-      margin: 0 auto 4rem;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      transition: all 0.4s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .about-content:hover {
-      transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
-      border-color: rgba(212, 175, 55, 0.4);
-    }
-
-    .about-content p {
-      color: #e0e0e0;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      text-align: center;
-      font-weight: 300;
-    }
-
-    .contact-content {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 3rem;
-      border-radius: 15px;
-      max-width: 800px;
-      margin: 0 auto;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      transition: all 0.4s ease;
-      backdrop-filter: blur(10px);
-      text-align: center;
-    }
-
-    .contact-content:hover {
-      transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
-      border-color: rgba(212, 175, 55, 0.4);
-    }
-
-    .contact-content p {
-      color: #e0e0e0;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-
-    .email-button {
-      display: inline-block;
-      background: linear-gradient(135deg, #d4af37 0%, #f0c748 100%);
-      color: #1a1a1a !important;
-      text-decoration: none;
-      padding: 15px 40px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-      font-size: 1.1rem;
-    }
-
-    .email-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-      background: linear-gradient(135deg, #f0c748 0%, #ffd700 100%);
-      color: #1a1a1a !important;
-      border-color: #d4af37;
-    }
-
-    /* Gallery Page */
-    .gallery-page {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 20px;
+      background: linear-gradient(90deg, transparent, #8bc34a, transparent);
     }
 
     .gallery {
@@ -327,18 +254,18 @@
       position: relative;
       overflow: hidden;
       border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       transition: all 0.4s ease;
       background: rgba(255, 255, 255, 0.05);
       cursor: zoom-in;
-      border: 1px solid rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(139, 195, 74, 0.2);
       aspect-ratio: 4 / 5;
     }
 
     .gallery-item:hover {
       transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
-      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 20px 40px rgba(139, 195, 74, 0.3);
+      border-color: rgba(139, 195, 74, 0.4);
     }
 
     .gallery-item img {
@@ -358,8 +285,8 @@
       position: absolute;
       top: 15px;
       right: 15px;
-      background: linear-gradient(135deg, #d4af37 0%, #f0c748 100%);
-      color: #1a1a1a;
+      background: linear-gradient(135deg, #8bc34a 0%, #aed581 100%);
+      color: #1a2e1a;
       padding: 0.6rem 1rem;
       border-radius: 50px;
       font-weight: 700;
@@ -375,7 +302,7 @@
       border-radius: 15px;
       max-width: 900px;
       margin: 4rem auto 0;
-      border: 1px solid rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(139, 195, 74, 0.2);
       transition: all 0.4s ease;
       backdrop-filter: blur(10px);
       text-align: center;
@@ -384,28 +311,110 @@
     .purchase-info:hover {
       transform: translateY(-8px);
       background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
-      border-color: rgba(212, 175, 55, 0.4);
+      box-shadow: 0 15px 35px rgba(139, 195, 74, 0.2);
+      border-color: rgba(139, 195, 74, 0.4);
     }
 
     .purchase-info p {
       font-size: 1.2rem;
       line-height: 1.8;
-      color: #e0e0e0;
+      color: #e8f5e8;
       margin: 0;
       font-weight: 300;
     }
 
     .purchase-info strong {
-      color: #d4af37;
+      color: #8bc34a;
       font-weight: 600;
+    }
+
+    /* About & Contact Page */
+    .about-contact-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .about-content {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3rem;
+      border-radius: 15px;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+      border: 1px solid rgba(139, 195, 74, 0.2);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .about-content:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(139, 195, 74, 0.2);
+      border-color: rgba(139, 195, 74, 0.4);
+    }
+
+    .about-content p {
+      color: #e8f5e8;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    .contact-content {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3rem;
+      border-radius: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid rgba(139, 195, 74, 0.2);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    .contact-content:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(139, 195, 74, 0.2);
+      border-color: rgba(139, 195, 74, 0.4);
+    }
+
+    .contact-content p {
+      color: #e8f5e8;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .email-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #8bc34a 0%, #aed581 100%);
+      color: #1a2e1a !important;
+      text-decoration: none;
+      padding: 15px 40px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
+      font-size: 1.1rem;
+    }
+
+    .email-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(139, 195, 74, 0.5);
+      background: linear-gradient(135deg, #aed581 0%, #c5e1a5 100%);
+      color: #1a2e1a !important;
+      border-color: #8bc34a;
     }
 
     /* Lightbox */
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.98);
+      background: rgba(28, 49, 28, 0.98);
       display: none;
       align-items: center;
       justify-content: center;
@@ -447,7 +456,7 @@
       width: auto;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
       user-select: none;
       -webkit-user-drag: none;
     }
@@ -456,9 +465,9 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      background: rgba(212, 175, 55, 0.2);
-      border: 2px solid rgba(212, 175, 55, 0.6);
-      color: #d4af37;
+      background: rgba(139, 195, 74, 0.2);
+      border: 2px solid rgba(139, 195, 74, 0.6);
+      color: #8bc34a;
       font-size: 1.1rem;
       padding: 0.5rem 1rem;
       border-radius: 50px;
@@ -469,8 +478,8 @@
     }
 
     .lightbox .close-btn:hover {
-      background: rgba(212, 175, 55, 0.3);
-      border-color: #d4af37;
+      background: rgba(139, 195, 74, 0.3);
+      border-color: #8bc34a;
       transform: scale(1.1);
     }
 
@@ -479,9 +488,9 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      color: #d4af37;
+      color: #8bc34a;
       font-size: 1.1rem;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(28, 49, 28, 0.8);
       padding: 0.7rem 1.5rem;
       border-radius: 50px;
       backdrop-filter: blur(10px);
@@ -499,9 +508,9 @@
 
     .lightbox .nav button {
       pointer-events: auto;
-      background: rgba(212, 175, 55, 0.2);
-      border: 2px solid rgba(212, 175, 55, 0.5);
-      color: #d4af37;
+      background: rgba(139, 195, 74, 0.2);
+      border: 2px solid rgba(139, 195, 74, 0.5);
+      color: #8bc34a;
       font-size: 1.5rem;
       padding: 1rem 1.2rem;
       margin: 0 1rem;
@@ -513,8 +522,8 @@
     }
 
     .lightbox .nav button:hover {
-      background: rgba(212, 175, 55, 0.3);
-      border-color: #d4af37;
+      background: rgba(139, 195, 74, 0.3);
+      border-color: #8bc34a;
       transform: scale(1.1);
     }
 
@@ -534,7 +543,7 @@
     .menu-toggle span {
       width: 25px;
       height: 3px;
-      background: #d4af37;
+      background: #8bc34a;
       transition: 0.3s;
       border-radius: 2px;
     }
@@ -561,7 +570,7 @@
         top: 70px;
         left: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.98);
+        background: rgba(28, 49, 28, 0.98);
         flex-direction: column;
         padding: 2rem;
         gap: 1rem;
@@ -570,7 +579,7 @@
         visibility: hidden;
         transition: all 0.4s ease;
         backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        border-bottom: 1px solid rgba(139, 195, 74, 0.2);
       }
 
       .nav-links.active {
@@ -590,6 +599,10 @@
 
       .home-content h1 {
         font-size: 2.5rem;
+      }
+
+      .home-content p {
+        font-size: 1.1rem;
       }
 
       .nav-links a {
@@ -671,16 +684,16 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: #1a1a1a;
+      background: #1a2e1a;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #d4af37;
+      background: #8bc34a;
       border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #f0c748;
+      background: #aed581;
     }
   </style>
 </head>
@@ -697,8 +710,8 @@
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#" id="navHome" onclick="showPage('home')">Home</a></li>
-        <li><a href="#" id="navAbout" onclick="showPage('about-contact')">About & Contact</a></li>
         <li><a href="#" id="navGallery" onclick="showPage('gallery')">Gallery</a></li>
+        <li><a href="#" id="navAbout" onclick="showPage('about-contact')">About Me</a></li>
         <li class="language-item">
           <div class="language-selector">
             <select id="languageSelect" onchange="changeLanguage()">
@@ -719,32 +732,9 @@
         <h1 id="heroTitle">Shima Gallery</h1>
         <p id="heroSubtitle">Realistic Artwork with Pen & Pencil ✏️</p>
         <div class="home-buttons">
-          <button class="page-button" onclick="showPage('about-contact')">About & Contact</button>
           <button class="page-button" onclick="showPage('gallery')">View Gallery</button>
+          <button class="page-button" onclick="showPage('about-contact')">About Me</button>
         </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- About & Contact Page -->
-  <div id="about-contact-page" class="page-container">
-    <section class="about-contact-page">
-      <h2 class="section-title" id="aboutTitle">About Me</h2>
-      <div class="about-content">
-        <p id="aboutText">
-          Welcome to my gallery! I am Shima and I create realistic artworks with pen and pencil. 
-          Each piece is created with patience, precision and passion for detail. I find my inspiration 
-          in the beauty of everyday life and the complexity of human expression.
-        </p>
-      </div>
-
-      <h2 class="section-title" id="contactTitle">Contact</h2>
-      <div class="contact-content">
-        <p id="contactText">
-          Interested in my artwork? For purchase, exhibitions, commissions or collaborations, 
-          feel free to reach out to me. I'd love to hear from you!
-        </p>
-        <a href="mailto:ShimaArtist1994@gmail.com" class="email-button" id="emailButton">ShimaArtist1994@gmail.com</a>
       </div>
     </section>
   </div>
@@ -788,6 +778,29 @@
     </section>
   </div>
 
+  <!-- About & Contact Page -->
+  <div id="about-contact-page" class="page-container">
+    <section class="about-contact-page">
+      <h2 class="section-title" id="aboutTitle">About Me</h2>
+      <div class="about-content">
+        <p id="aboutText">
+          Welcome to my gallery! I am Shima and I create realistic artworks with pen and pencil. 
+          Each piece is created with patience, precision and passion for detail. I find my inspiration 
+          in the beauty of everyday life and the complexity of human expression.
+        </p>
+      </div>
+
+      <h2 class="section-title" id="contactTitle">Contact</h2>
+      <div class="contact-content">
+        <p id="contactText">
+          Interested in my artwork? For purchase, exhibitions, commissions or collaborations, 
+          feel free to reach out to me. I'd love to hear from you!
+        </p>
+        <a href="mailto:ShimaArtist1994@gmail.com" class="email-button" id="emailButton">ShimaArtist1994@gmail.com</a>
+      </div>
+    </section>
+  </div>
+
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image enlarged view">
     <button class="close-btn" id="lbClose" aria-label="Close (Esc)">✕</button>
     <div class="nav">
@@ -803,44 +816,44 @@
       en: {
         logoText: 'Shima Gallery',
         navHome: 'Home',
-        navAbout: 'About & Contact',
         navGallery: 'Gallery',
+        navAbout: 'About Me',
         heroTitle: 'Shima Gallery',
         heroSubtitle: 'Realistic Artwork with Pen & Pencil ✏️',
+        galleryTitle: 'My Artworks',
         aboutTitle: 'About Me',
         aboutText: 'Welcome to my gallery! I am Shima and I create realistic artworks with pen and pencil. Each piece is created with patience, precision and passion for detail. I find my inspiration in the beauty of everyday life and the complexity of human expression.',
         contactTitle: 'Contact',
         contactText: 'Interested in my artwork? For purchase, exhibitions, commissions or collaborations, feel free to reach out to me. I\'d love to hear from you!',
-        emailButton: 'ShimaArtist1994@gmail.com',
-        galleryTitle: 'My Artworks'
+        emailButton: 'ShimaArtist1994@gmail.com'
       },
       de: {
         logoText: 'Shima Galerie',
         navHome: 'Home',
-        navAbout: 'Über mich & Kontakt',
         navGallery: 'Galerie',
+        navAbout: 'Über mich',
         heroTitle: 'Shima Galerie',
         heroSubtitle: 'Realistische Kunstwerke mit Kugelschreiber & Bleistift ✏️',
+        galleryTitle: 'Meine Kunstwerke',
         aboutTitle: 'Über mich',
         aboutText: 'Willkommen in meiner Galerie! Ich bin Shima und erschaffe realistische Kunstwerke mit Kugelschreiber und Bleistift. Jedes Werk entsteht durch Geduld, Präzision und Leidenschaft für Details. Meine Inspiration finde ich in der Schönheit des Alltäglichen und der Komplexität menschlicher Ausdrucksformen.',
         contactTitle: 'Kontakt',
         contactText: 'Interessiert an meinen Kunstwerken? Für Verkauf, Ausstellungen, Auftragsarbeiten oder Zusammenarbeit können Sie mich gerne kontaktieren. Ich freue mich von Ihnen zu hören!',
-        emailButton: 'ShimaArtist1994@gmail.com',
-        galleryTitle: 'Meine Kunstwerke'
+        emailButton: 'ShimaArtist1994@gmail.com'
       },
       fa: {
         logoText: 'گالری شیما',
         navHome: 'خانه',
-        navAbout: 'درباره من و تماس',
         navGallery: 'گالری',
+        navAbout: 'درباره من',
         heroTitle: 'گالری شیما',
         heroSubtitle: 'آثار هنری واقع‌گرایانه با خودکار و مداد ✏️',
+        galleryTitle: 'آثار هنری من',
         aboutTitle: 'درباره من',
         aboutText: 'به گالری من خوش آمدید! من شیما هستم و آثار هنری واقع‌گرایانه با خودکار و مداد خلق می‌کنم. هر اثر با صبر، دقت و اشتیاق به جزئیات ایجاد می‌شود. الهام من را در زیبایی زندگی روزمره و پیچیدگی بیان انسانی می‌یابم.',
         contactTitle: 'تماس',
         contactText: 'به آثار هنری من علاقه‌مند هستید؟ برای خرید، نمایشگاه‌ها، سفارشات یا همکاری، می‌توانید با من تماس بگیرید. خوشحال می‌شوم پیام شما را دریافت کنم!',
-        emailButton: 'ShimaArtist1994@gmail.com',
-        galleryTitle: 'آثار هنری من'
+        emailButton: 'ShimaArtist1994@gmail.com'
       }
     };
 
@@ -868,16 +881,16 @@
       
       document.getElementById('logoText').textContent = t.logoText;
       document.getElementById('navHome').textContent = t.navHome;
-      document.getElementById('navAbout').textContent = t.navAbout;
       document.getElementById('navGallery').textContent = t.navGallery;
+      document.getElementById('navAbout').textContent = t.navAbout;
       document.getElementById('heroTitle').textContent = t.heroTitle;
       document.getElementById('heroSubtitle').textContent = t.heroSubtitle;
+      document.getElementById('galleryTitle').textContent = t.galleryTitle;
       document.getElementById('aboutTitle').textContent = t.aboutTitle;
       document.getElementById('aboutText').textContent = t.aboutText;
       document.getElementById('contactTitle').textContent = t.contactTitle;
       document.getElementById('contactText').textContent = t.contactText;
       document.getElementById('emailButton').textContent = t.emailButton;
-      document.getElementById('galleryTitle').textContent = t.galleryTitle;
       
       document.body.style.direction = lang === 'fa' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
@@ -1036,11 +1049,9 @@
       });
     })();
 
-    console.log('🚀 Website successfully loaded!');
-    console.log('🎨 New page structure:');
-    console.log('   - Home: Language selection + page buttons');
-    console.log('   - Page 1: About Me & Contact combined');
-    console.log('   - Page 2: Gallery only');
+    console.log('🎨 Website loaded with new design!');
+    console.log('🌿 Color palette: Nature-inspired greens');
+    console.log('📱 Navigation: Home → Gallery → About Me');
   </script>
 </body>
 </html>
