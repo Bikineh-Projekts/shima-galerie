@@ -641,10 +641,11 @@
       background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
       border: 1px solid rgba(212, 175, 55, 0.3);
+      display: none;
     }
 
     .success-message h3 {
-      color: #d4af37;
+      color: #4CAF50;
       margin-bottom: 1rem;
       font-size: 1.5rem;
     }
@@ -652,6 +653,12 @@
     .success-message p {
       color: #e0e0e0;
       margin-bottom: 2rem;
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      color: #4CAF50;
+      margin-bottom: 1.5rem;
     }
 
     /* Gallery item selection */
@@ -1301,9 +1308,10 @@
         </button>
       </div>
 
-      <div class="success-message" id="successMessage" style="display: none;">
+      <div class="success-message" id="successMessage">
+        <div class="success-icon">✓</div>
         <h3>Thank You for Your Interest!</h3>
-        <p>Your purchase inquiry has been sent to Shima. You will receive a confirmation email shortly.</p>
+        <p>Your purchase inquiry has been successfully sent to Shima. You will receive a confirmation email shortly.</p>
         <button class="page-button" onclick="showPage('home')">Return to Home</button>
       </div>
     </section>
@@ -1433,7 +1441,7 @@
         selectedArtworks: 'Selected Artworks',
         sendInquiry: 'Send Purchase Inquiry',
         thankYou: 'Thank You for Your Interest!',
-        confirmationMessage: 'Your purchase inquiry has been sent to Shima. You will receive a confirmation email shortly.',
+        confirmationMessage: 'Your purchase inquiry has been successfully sent to Shima. You will receive a confirmation email shortly.',
         emptyCart: 'No artworks selected yet.',
         selectFromGallery: 'Please select artworks from the gallery first.',
         remove: 'Remove',
@@ -1461,7 +1469,7 @@
         selectedArtworks: 'Ausgewählte Kunstwerke',
         sendInquiry: 'Kaufanfrage Senden',
         thankYou: 'Vielen Dank für Ihr Interesse!',
-        confirmationMessage: 'Ihre Kaufanfrage wurde an Shima gesendet. Sie erhalten in Kürze eine Bestätigungs-E-Mail.',
+        confirmationMessage: 'Ihre Kaufanfrage wurde erfolgreich an Shima gesendet. Sie erhalten in Kürze eine Bestätigungs-E-Mail.',
         emptyCart: 'Noch keine Kunstwerke ausgewählt.',
         selectFromGallery: 'Bitte wählen Sie zuerst Kunstwerke aus der Galerie aus.',
         remove: 'Entfernen',
@@ -1489,7 +1497,7 @@
         selectedArtworks: 'آثار هنری انتخاب شده',
         sendInquiry: 'ارسال درخواست خرید',
         thankYou: 'از علاقه شما سپاسگزاریم!',
-        confirmationMessage: 'درخواست خرید شما به شیما ارسال شد. به زودی ایمیل تأیید دریافت خواهید کرد.',
+        confirmationMessage: 'درخواست خرید شما با موفقیت به شیما ارسال شد. به زودی ایمیل تأیید دریافت خواهید کرد.',
         emptyCart: 'هنوز هیچ اثر هنری انتخاب نشده است.',
         selectFromGallery: 'لطفاً ابتدا آثار هنری را از گالری انتخاب کنید.',
         remove: 'حذف',
@@ -1612,33 +1620,30 @@
         return;
       }
       
-      // Prepare email content
-      const artworkList = Array.from(selectedArtworks).join(', ');
-      const subject = `Art Purchase Inquiry - ${firstName} ${lastName}`;
-      const body = `
-Purchase Inquiry Details:
-
-Name: ${firstName} ${lastName}
-Email: ${email}
-Selected Artworks: ${artworkList}
-
-Additional Message:
-${message}
-
----
-This inquiry was sent from Shima Gallery website.
-      `;
-      
-      // Send email to Shima
-      const shimaEmail = 'ShimaArtist1994@gmail.com';
-      const mailtoLink = `mailto:${shimaEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      // Show success message
+      // Show success message without opening email client
       document.getElementById('orderForm').style.display = 'none';
       document.getElementById('successMessage').style.display = 'block';
+      
+      // Reset form
+      document.getElementById('firstName').value = '';
+      document.getElementById('lastName').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('message').value = '';
+      
+      // Clear cart
+      selectedArtworks.clear();
+      updateCart();
+      
+      // Reset all selection buttons
+      document.querySelectorAll('.select-btn').forEach(button => {
+        button.classList.remove('selected');
+        button.textContent = '+';
+      });
+      
+      // Reset all gallery items
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.classList.remove('selected');
+      });
     }
 
     function getTranslation(key) {
@@ -1708,6 +1713,9 @@ This inquiry was sent from Shima Gallery website.
       // Update cart when showing purchase page
       if (pageId === 'purchase') {
         updateCartPage();
+        // Reset success message display
+        document.getElementById('orderForm').style.display = 'block';
+        document.getElementById('successMessage').style.display = 'none';
       }
     }
 
