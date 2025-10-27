@@ -24,10 +24,7 @@
     }
 
     .language-selector {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1001;
+      position: relative;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 8px;
       backdrop-filter: blur(10px);
@@ -85,6 +82,7 @@
       display: flex;
       gap: 30px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -95,6 +93,7 @@
       letter-spacing: 1px;
       transition: color 0.3s;
       position: relative;
+      white-space: nowrap;
     }
 
     .nav-links a::after {
@@ -115,6 +114,10 @@
 
     .nav-links a:hover::after {
       width: 80%;
+    }
+
+    .language-item {
+      margin-left: 10px;
     }
 
     .hero {
@@ -451,10 +454,50 @@
       overflow: hidden;
     }
 
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #d4af37;
+      transition: 0.3s;
+    }
+
     @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
       .language-selector {
-        top: 10px;
-        right: 10px;
+        margin-top: 10px;
       }
 
       .hero-content h1 {
@@ -465,12 +508,9 @@
         font-size: 16px;
       }
 
-      .nav-links {
-        gap: 15px;
-      }
-
       .nav-links a {
-        font-size: 12px;
+        font-size: 16px;
+        padding: 10px 0;
       }
 
       .logo {
@@ -527,22 +567,30 @@
   </style>
 </head>
 <body>
-  <div class="language-selector">
-    <select id="languageSelect" onchange="changeLanguage()">
-      <option value="de">Deutsch</option>
-      <option value="en">English</option>
-      <option value="fa">فارسی</option>
-    </select>
-  </div>
-
   <header>
     <nav>
       <div class="logo" id="logoText">Shima Galerie</div>
-      <ul class="nav-links">
+      
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home" id="navHome">Home</a></li>
         <li><a href="#about" id="navAbout">Über mich</a></li>
         <li><a href="#gallery" id="navGallery">Galerie</a></li>
         <li><a href="#contact" id="navContact">Kontakt</a></li>
+        <li class="language-item">
+          <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage()">
+              <option value="de">Deutsch</option>
+              <option value="en">English</option>
+              <option value="fa">فارسی</option>
+            </select>
+          </div>
+        </li>
       </ul>
     </nav>
   </header>
@@ -570,18 +618,32 @@
   <section id="gallery" class="gallery-section">
     <h2 id="galleryTitle">Meine Kunstwerke</h2>
     <div class="gallery" id="galleryGrid">
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=1" alt="Kunstwerk 1"><div class="gallery-overlay"><span>1</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=2" alt="Kunstwerk 2"><div class="gallery-overlay"><span>2</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=3" alt="Kunstwerk 3"><div class="gallery-overlay"><span>3</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=4" alt="Kunstwerk 4"><div class="gallery-overlay"><span>4</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=5" alt="Kunstwerk 5"><div class="gallery-overlay"><span>5</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=6" alt="Kunstwerk 6"><div class="gallery-overlay"><span>6</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=7" alt="Kunstwerk 7"><div class="gallery-overlay"><span>7</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=8" alt="Kunstwerk 8"><div class="gallery-overlay"><span>8</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=9" alt="Kunstwerk 9"><div class="gallery-overlay"><span>9</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=10" alt="Kunstwerk 10"><div class="gallery-overlay"><span>10</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=11" alt="Kunstwerk 11"><div class="gallery-overlay"><span>11</span></div></div>
-      <div class="gallery-item"><img loading="lazy" decoding="async" src="https://picsum.photos/400/500?random=12" alt="Kunstwerk 12"><div class="gallery-overlay"><span>12</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0471.JPG" alt="Realistische Porträtzeichnung mit Kugelschreiber"><div class="gallery-overlay"><span>1</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0472.JPG" alt="Detailierte Bleistiftzeichnung eines Gesichts"><div class="gallery-overlay"><span>2</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0474.JPG" alt="Kugelschreiber Kunst mit Schattierungen"><div class="gallery-overlay"><span>3</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0476.JPG" alt="Realistische Augenzeichnung mit Bleistift"><div class="gallery-overlay"><span>4</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0477.JPG" alt="Porträtkunst mit Kugelschreiber Technik"><div class="gallery-overlay"><span>5</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0479.JPG" alt="Detaillierte Gesichtsstudie mit Stift"><div class="gallery-overlay"><span>6</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0481.JPG" alt="Kunstwerk mit Schattierungstechniken"><div class="gallery-overlay"><span>7</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0482.JPG" alt="Realistische Zeichnung mit Präzision"><div class="gallery-overlay"><span>8</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0485.JPG" alt="Bleistift Portrait mit Details"><div class="gallery-overlay"><span>9</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="IMG_0486.JPG" alt="Kugelschreiber Kunstwerk im Profil"><div class="gallery-overlay"><span>10</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-09-19_01-14-34.jpg" alt="Realistische Handzeichnung mit Stift"><div class="gallery-overlay"><span>11</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-36.jpg" alt="Detaillierte Porträtstudie"><div class="gallery-overlay"><span>12</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-44.jpg" alt="Kugelschreiber Kunst mit Tiefe"><div class="gallery-overlay"><span>13</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-04-51.jpg" alt="Bleistiftzeichnung mit Textur"><div class="gallery-overlay"><span>14</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-05-39.jpg" alt="Realistische Gesichtsausdrücke"><div class="gallery-overlay"><span>15</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-08.jpg" alt="Kunstwerk mit Licht und Schatten"><div class="gallery-overlay"><span>16</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-16.jpg" alt="Detaillierte Stiftzeichnung"><div class="gallery-overlay"><span>17</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-24.jpg" alt="Porträt mit emotionalem Ausdruck"><div class="gallery-overlay"><span>18</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-31.jpg" alt="Realistische Haarzeichnung"><div class="gallery-overlay"><span>19</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-39.jpg" alt="Kugelschreiber Kunst im Detail"><div class="gallery-overlay"><span>20</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-06-52.jpg" alt="Bleistift Studie mit Präzision"><div class="gallery-overlay"><span>21</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-09.jpg" alt="Realistische Augenpartie"><div class="gallery-overlay"><span>22</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-39.jpg" alt="Kunstwerk mit Tiefenwirkung"><div class="gallery-overlay"><span>23</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-07-54.jpg" alt="Porträtzeichnung mit Stift"><div class="gallery-overlay"><span>24</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-09.jpg" alt="Realistische Gesichtszüge"><div class="gallery-overlay"><span>25</span></div></div>
+      <div class="gallery-item"><img loading="lazy" decoding="async" src="photo_2025-10-02_19-08-16.jpg" alt="Detaillierte Bleistiftkunst"><div class="gallery-overlay"><span>26</span></div></div>
     </div>
 
     <div class="purchase-info">
@@ -677,6 +739,23 @@
       document.body.style.direction = lang === 'fa' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
     }
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
 
     document.querySelectorAll('nav a, .cta-button').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -825,12 +904,13 @@
     })();
 
     console.log('✅ Website erfolgreich geladen!');
+    console.log('🖼️  Echte Bilder eingefügt: 26 Kunstwerke');
     console.log('🎨 Funktionen getestet:');
+    console.log('   - Navigation: Home, Über mich, Galerie, Kontakt, Sprache');
     console.log('   - Sprachumschaltung (DE/EN/FA)');
-    console.log('   - Smooth Scrolling Navigation');
+    console.log('   - Mobile Menu');
     console.log('   - Lightbox mit Zoom und Navigation');
     console.log('   - Responsive Design');
-    console.log('   - Touch-Gesten für Mobile');
   </script>
 </body>
 </html>
